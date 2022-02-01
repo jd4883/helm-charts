@@ -66,7 +66,7 @@ Create the name of the service account to use
 - name: {{ $key }}
   valueFrom:
     secretKeyRef:
-      name: {{ .Values.secret.name }}
+      name: plex-linker-env
       key: {{ $key }}
 {{- end}}
 {{- end }}
@@ -76,7 +76,7 @@ Create the name of the service account to use
 - name: {{ $key }}
   valueFrom:
     configMapKeyRef:
-      name: {{ .Values.configMap.name }}
+      name: plex-linker-env
       key: {{ $key }}
 {{- end}}
 {{- end }}
