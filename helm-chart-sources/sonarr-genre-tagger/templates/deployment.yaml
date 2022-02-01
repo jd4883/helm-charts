@@ -68,7 +68,4 @@ spec:
       volumes:
         - name: config-yaml
           configMap:
-            name: sonarr-genre-tagger-parameters
-            items:
-              - key: config.yaml
-                path: config.yaml
+            name: {{ .Values.configMap.name }}
