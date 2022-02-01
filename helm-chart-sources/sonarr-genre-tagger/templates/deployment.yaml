@@ -49,9 +49,10 @@ spec:
               port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          # volumeMounts:
-          #   - name: config
-          #     mountPath: /config
+          volumeMounts:
+            - name: config-yaml
+              mountPath: /app/config.yaml
+              subPath: config.yaml
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
