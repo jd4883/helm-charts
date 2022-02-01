@@ -1,0 +1,17 @@
+apiVersion: v1
+entries:
+  sonarr-genre-tagger:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-01-31T19:35:56.344664-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 207850d49c9e0b42ee4e6b61a02b7541e70cf9f8452e051862b7eb3961d81e1e
+    maintainers:
+    - email: expectedbehaviors@gmail.com
+      name: Jacob Dresdale
+    name: sonarr-genre-tagger
+    type: application
+    urls:
+    - https://jd4883.github.io/helm-charts/sonarr-genre-tagger/sonarr-genre-tagger-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-31T19:35:56.343865-08:00"
