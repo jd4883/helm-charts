@@ -52,6 +52,8 @@ spec:
           volumeMounts:
             - name: config
               mountPath: /config
+            - name: config-yaml
+              mountPath: /config
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
@@ -66,6 +68,8 @@ spec:
       {{- end }}
       volumes:
         - name: config
+          emptyDir: {}
+        - name: config-yaml
           configMap:
             name: sonarr-genre-tagger-parameters
             items:
