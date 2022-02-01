@@ -72,4 +72,4 @@ spec:
             name: sonarr-genre-tagger-parameters
             items:
               - key: config.yaml
-                path: /config/config.yaml
+                path: config.yaml
