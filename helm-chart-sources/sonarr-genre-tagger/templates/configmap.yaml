@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.configMap.name }}
+  namespace: {{ .Release.Namespace }}
 data:
   config.yaml: |
     tagging:
