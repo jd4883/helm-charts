@@ -51,7 +51,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - name: config-yaml
-              mountPath: /app/config.yaml
+              mountPath: /config/config.yaml
               subPath: config.yaml
       {{- with .Values.nodeSelector }}
       nodeSelector:
