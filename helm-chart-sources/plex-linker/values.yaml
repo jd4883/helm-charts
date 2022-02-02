@@ -38,8 +38,6 @@ securityContext: {}
 
 secret:
   name: plex-linker-env
-configMap:
-  name: plex-linker-env
 env:
   normal:
     APPEND_TO_CRON_END: ""
