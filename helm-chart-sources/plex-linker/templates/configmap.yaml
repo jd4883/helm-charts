@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.configMap.name }}
   namespace: {{ .Release.Namespace }}
-data:
+data: |
   {{- range $key, $val := .Values.env.normal }}
   {{ $key }}: {{ $val }}
   {{- end}}

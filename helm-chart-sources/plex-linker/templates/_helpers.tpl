@@ -68,15 +68,5 @@ Create the name of the service account to use
     secretKeyRef:
       name: plex-linker-env
       key: {{ $key }}
-{{- end}}
 {{- end }}
-
-{{- define "helpers.list-env-variables"}}
-{{- range $key, $val := .Values.env.normal }}
-- name: {{ $key }}
-  valueFrom:
-    configMapKeyRef:
-      name: plex-linker-env
-      key: {{ $key }}
-{{- end}}
 {{- end }}
