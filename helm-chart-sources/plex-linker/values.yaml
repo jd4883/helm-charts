@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: jb6magic/plex_linker
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
@@ -45,7 +45,6 @@ env:
     APPEND_TO_CRON_END: ""
     CONFIG_ARCHIVES: /config/config_files/archives
     DOCKER_MEDIA_PATH: /media/video
-    EPISODE_PADDING:
     FREQUENCY: 1
     GIT_BRANCH: master
     GIT_REPO: https://github.com/jd4883/plex-linker-beta.git
