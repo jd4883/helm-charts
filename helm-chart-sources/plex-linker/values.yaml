@@ -73,3 +73,6 @@ service:
     ports:
       http:
         port: 80
+
+ingress:
+  enabled: false
