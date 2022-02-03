@@ -68,9 +68,9 @@ envFrom:
 service:
   main:
     ports:
-      http:
-        enabled: false
-        port: 80
+      - http:
+          enabled: false
+          port: 80
 
 ingress:
   enabled: false
