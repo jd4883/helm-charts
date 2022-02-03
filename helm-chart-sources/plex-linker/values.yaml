@@ -67,16 +67,3 @@ persistence:
   media:
     enabled: false
     mountPath: /media
-
-strategy:
-  type: Recreate
-
-service:
-  main:
-    enabled: false
-    ports:
-      http:
-        enabled: false
-        targetPort: 80
-        primary: true
-        protocol: HTTP
