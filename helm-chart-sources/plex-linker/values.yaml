@@ -65,6 +65,13 @@ envFrom:
   - configMapRef:
       name: config
 
+service:
+  main:
+    ports:
+      http:
+        enabled: false
+        port: 80
+
 ingress:
   enabled: false
 
