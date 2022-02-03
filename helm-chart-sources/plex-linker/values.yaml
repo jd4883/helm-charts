@@ -68,4 +68,5 @@ persistence:
     enabled: false
     mountPath: /media
 
-service: {}
+strategy:
+  type: Recreate
