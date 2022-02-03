@@ -29,6 +29,6 @@ maintainers:
     email: expectedbehaviors@gmail.com
 # Chart.yaml
 dependencies:
-- name: common
-  version: 4.3.0
-  repository: https://k8s-at-home.com/charts/
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.3.0

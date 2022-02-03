@@ -3,13 +3,13 @@ entries:
   plex-linker:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-01T23:07:13.830872-08:00"
+    created: "2022-02-03T00:20:12.865726-08:00"
     dependencies:
     - name: common
       repository: https://k8s-at-home.com/charts/
-      version: 3.0.0
+      version: 4.3.0
     description: A Helm chart for Kubernetes
-    digest: 8ae8778751784457dc095b6618e54e03a9cdbb4ede65cc4d57ab9e43b1b6a246
+    digest: 01fcab322704e03642fd61225fd61064c382b35b341b451ae6d212e8760dd021
     maintainers:
     - email: expectedbehaviors@gmail.com
       name: Jacob Dresdale
@@ -23,7 +23,7 @@ entries:
   sonarr-genre-tagger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-01T23:07:13.83236-08:00"
+    created: "2022-02-03T00:20:12.866362-08:00"
     description: A Helm chart for Kubernetes
     digest: 905d56f94e22262bc809f9e9fbd6c3480fb949db1ba02fb1c513d345a53c3987
     maintainers:
@@ -36,4 +36,4 @@ entries:
     urls:
     - https://jd4883.github.io/helm-charts/sonarr-genre-tagger-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-01T23:07:13.825699-08:00"
+generated: "2022-02-03T00:20:12.863094-08:00"
