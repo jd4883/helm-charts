@@ -7,7 +7,6 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
-
 secret:
   PLEX_API_KEY: ""
   PLEX_PASSWORD: ""
@@ -68,3 +67,9 @@ persistence:
   media:
     enabled: false
     mountPath: /media
+
+service:
+  main:
+    ports:
+      http:
+        port: 80
