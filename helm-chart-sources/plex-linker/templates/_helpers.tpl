@@ -61,12 +61,16 @@ Create the name of the service account to use
 {{- end }}
 {{- end }}
 
-{{- define "helpers.list-sensitive-env-variables"}}
+{{- define "helpers.envvars" }}
 {{- range $key, $val := .Values.env.secret }}
 - name: {{ $key }}
   valueFrom:
     secretKeyRef:
       name: plex-linker-env
       key: {{ $key }}
+{{- end }}
+{{- range $key, $val := .Values.env.normal }}
+- name: {{ $key }}
+  value: {{ $val }}
 {{- end }}
 {{- end }}
