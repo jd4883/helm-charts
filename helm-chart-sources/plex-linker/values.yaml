@@ -8,10 +8,6 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
 
-env:
-  # -- Set the container timezone
-  TZ: UTC
-
 secret:
   PLEX_API_KEY: ""
   PLEX_PASSWORD: ""
@@ -64,16 +60,6 @@ envFrom:
       name: SONARR_API_KEY
   - configMapRef:
       name: config
-
-service:
-  main:
-    ports:
-      - http:
-          enabled: false
-          port: 80
-
-ingress:
-  enabled: false
 
 persistence:
   config:
