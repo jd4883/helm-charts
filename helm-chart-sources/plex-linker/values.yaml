@@ -68,10 +68,4 @@ persistence:
     enabled: false
     mountPath: /media
 
-service:
-  primary:
-    ports:
-      http:
-        port: 80
-        targetPort: 80
-        enabled: false
+service: {}
