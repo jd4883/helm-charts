@@ -74,14 +74,3 @@ service:
       http:
         port: 80
         enabled: false
-
-ingress:
-  main:
-    enabled: false
-    hosts:
-      - host: "plex-linker.local"
-        paths:
-          - path: /
-            pathType: Prefix
-            service:
-              port: 80
