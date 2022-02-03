@@ -62,3 +62,10 @@ persistence:
   media:
     enabled: false
     mountPath: /media
+
+# @default -- See values.yaml
+service:
+  main:
+    ports:
+      http:
+        port: 80
