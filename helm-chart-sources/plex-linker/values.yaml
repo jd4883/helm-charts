@@ -7,15 +7,16 @@ image:
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: latest
-secret:
+
+env:
+  # TODO: update template to enforce these as secrets
   PLEX_API_KEY: ""
   PLEX_PASSWORD: ""
   PLEX_SERVER: ""
   PLEX_USERNAME: ""
   RADARR_API_KEY: ""
   SONARR_API_KEY: ""
-
-env:
+  # TODO: update template to make a configmap to store these and other parameter values
   APPEND_TO_CRON_END: ""
   CONFIG_ARCHIVES: /config/config_files/archives
   DOCKER_MEDIA_PATH: /media/video
@@ -41,19 +42,6 @@ env:
   YAML_FILE_CURRENT: /config/config_files/media_collection_parsed_this_run.yaml
   YAML_FILE_PREVIOUS: /config/config_files/media_collection_parsed_last_run.yaml
 
-envFrom:
-  - secretRef:
-      name: PLEX_API_KEY
-  - secretRef:
-      name: PLEX_PASSWORD
-  - secretRef:
-      name: PLEX_SERVER
-  - secretRef:
-      name: PLEX_USERNAME
-  - secretRef:
-      name: RADARR_API_KEY
-  - secretRef:
-      name: SONARR_API_KEY
 
 persistence:
   config:
