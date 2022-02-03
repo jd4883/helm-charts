@@ -27,7 +27,7 @@ configmap:
       GIT_REPO: https://github.com/jd4883/plex-linker-beta.git
       HOST_MEDIA_PATH: /media/video
       LOGS: /config/logs
-      LOG_NAME: plex_linker
+      LOG_NAME: plex-linker
       PLEX_ANIME: Anime
       PLEX_LINKER: /config
       PLEX_MOVIES: Movies
@@ -70,14 +70,18 @@ persistence:
 
 service:
   main:
+    ports:
+      http:
+        port: 80
+        enabled: false
+
+ingress:
+  main:
     enabled: false
     hosts:
-      - host: plex-linker.local
+      - host: "plex-linker.local"
         paths:
           - path: /
             pathType: Prefix
             service:
               port: 80
-
-ingress:
-  enabled: false
