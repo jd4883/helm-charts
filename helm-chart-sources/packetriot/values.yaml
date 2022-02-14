@@ -13,10 +13,3 @@ persistence:
     enabled: true
     accessMode: ReadWriteOnce
     mountPath: /data
-
-# @default -- See values.yaml
-service:
-  main:
-    ports:
-      tunnel:
-        port: 22213
