@@ -11,6 +11,7 @@ image:
 persistence:
   data:
     enabled: true
+    accessMode: ReadWriteOnce
     mountPath: /data
 
 # @default -- See values.yaml
