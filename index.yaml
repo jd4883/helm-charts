@@ -3,14 +3,14 @@ entries:
   packetriot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:34:30.425565-08:00"
+    created: "2022-02-14T00:39:34.978655-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
       version: 4.3.0
     description: A Helm chart for Kubernetes, taking this guide (https://packetriot.com/tutorials/posts/setting-up-plex/)
       and making a helm chart for the package
-    digest: 02ebcc79c0c984cdbb22ba38d93d9c6eb8157d330cea7473efa22daa869a869e
+    digest: f3edf38f409f8a9301bfa8038fe4c0d3f84c39b08b1ad7a2cd523d8051de97d8
     maintainers:
     - email: expectedbehaviors@gmail.com
       name: Jacob Dresdale
@@ -22,13 +22,13 @@ entries:
   plex-linker:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:34:30.429815-08:00"
+    created: "2022-02-14T00:39:34.982045-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
       version: 4.3.0
     description: A Helm chart for Kubernetes
-    digest: b36e060cc03de6c581746fd6a7228a2c2070270c4f491c119a154c372c5a44df
+    digest: e15e95e42b8be7651eba3c0c4ca5aca118ade04bc6d62acb75a1fe92d98c12b7
     maintainers:
     - email: expectedbehaviors@gmail.com
       name: Jacob Dresdale
@@ -42,9 +42,9 @@ entries:
   sonarr-genre-tagger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:34:30.430446-08:00"
+    created: "2022-02-14T00:39:34.982618-08:00"
     description: A Helm chart for Kubernetes
-    digest: d279c4775da936a1d7ff159108a6e7272f87e331cc40d255afad7832d3dacfe1
+    digest: b1f67bb5aeadfb6a8d25367fe3f951a42c72ed34ddfb26530051916f69c28d55
     maintainers:
     - email: expectedbehaviors@gmail.com
       name: Jacob Dresdale
@@ -55,4 +55,4 @@ entries:
     urls:
     - sonarr-genre-tagger-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-14T00:34:30.421726-08:00"
+generated: "2022-02-14T00:39:34.975302-08:00"

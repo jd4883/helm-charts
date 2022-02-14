@@ -16,6 +16,7 @@ persistence:
 
 service:
   main:
+    enabled: false
     ports:
       http:
         port: 80
