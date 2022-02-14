@@ -13,3 +13,9 @@ persistence:
     enabled: true
     accessMode: ReadWriteOnce
     mountPath: /data
+
+service:
+  main:
+    ports:
+      http:
+        port: 80
