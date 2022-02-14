@@ -1,0 +1,15 @@
+apiVersion: v2
+name: packetriot
+description: A Helm chart for Kubernetes, taking this guide (https://packetriot.com/tutorials/posts/setting-up-plex/) and making a helm chart for the package
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+dependencies:
+  - name: common
+    repository: https://library-charts.k8s-at-home.com
+    version: 4.3.0
+sources:
+  - https://github.com/jd4883/plex-linker-beta
+maintainers:
+  - name: Jacob Dresdale
+    email: expectedbehaviors@gmail.com
