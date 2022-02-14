@@ -1,15 +1,36 @@
 apiVersion: v1
 entries:
+  packetriot:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2022-02-14T00:10:08.202142-08:00"
+    dependencies:
+    - name: common
+      repository: https://library-charts.k8s-at-home.com
+      version: 4.3.0
+    description: A Helm chart for Kubernetes, taking this guide (https://packetriot.com/tutorials/posts/setting-up-plex/)
+      and making a helm chart for the package
+    digest: f98f20dec0deffeded5ea62e8ceea8674b4505fe0db571241836169770144e71
+    maintainers:
+    - email: expectedbehaviors@gmail.com
+      name: Jacob Dresdale
+    name: packetriot
+    sources:
+    - https://github.com/jd4883/plex-linker-beta
+    type: application
+    urls:
+    - packetriot-0.1.0.tgz
+    version: 0.1.0
   plex-linker:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-03T00:20:12.865726-08:00"
+    created: "2022-02-14T00:10:08.207076-08:00"
     dependencies:
     - name: common
-      repository: https://k8s-at-home.com/charts/
+      repository: https://library-charts.k8s-at-home.com
       version: 4.3.0
     description: A Helm chart for Kubernetes
-    digest: 01fcab322704e03642fd61225fd61064c382b35b341b451ae6d212e8760dd021
+    digest: 1aee8665e6662cf247fe7ec24c616e4c187ea8c24ebaaf296fb133ae3b779844
     maintainers:
     - email: expectedbehaviors@gmail.com
       name: Jacob Dresdale
@@ -18,12 +39,12 @@ entries:
     - https://github.com/jd4883/plex-linker-beta
     type: application
     urls:
-    - https://jd4883.github.io/helm-charts/plex-linker-0.1.0.tgz
+    - plex-linker-0.1.0.tgz
     version: 0.1.0
   sonarr-genre-tagger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-03T00:20:12.866362-08:00"
+    created: "2022-02-14T00:10:08.208293-08:00"
     description: A Helm chart for Kubernetes
     digest: 905d56f94e22262bc809f9e9fbd6c3480fb949db1ba02fb1c513d345a53c3987
     maintainers:
@@ -34,6 +55,6 @@ entries:
     - https://github.com/jd4883/sonarr-genre-tagger
     type: application
     urls:
-    - https://jd4883.github.io/helm-charts/sonarr-genre-tagger-0.1.0.tgz
+    - sonarr-genre-tagger-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-03T00:20:12.863094-08:00"
+generated: "2022-02-14T00:10:08.198451-08:00"
