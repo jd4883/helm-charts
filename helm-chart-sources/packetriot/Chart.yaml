@@ -8,8 +8,6 @@ dependencies:
   - name: common
     repository: https://library-charts.k8s-at-home.com
     version: 4.3.0
-sources:
-  - https://github.com/jd4883/plex-linker-beta
 maintainers:
   - name: Jacob Dresdale
     email: expectedbehaviors@gmail.com
