@@ -3,7 +3,7 @@ entries:
   onepassword-connect:
   - apiVersion: v2
     appVersion: 1.7.4
-    created: "2024-02-16T21:21:17.578429-08:00"
+    created: "2024-02-16T21:22:13.850623-08:00"
     description: A Helm chart for deploying 1Password Connect and the 1Password Connect
       Kubernetes Operator
     digest: 91e0921ff8ca7555d7c0fb954547bced69a6ed7aff887c60d0f207a7f0627835
@@ -22,7 +22,7 @@ entries:
     version: 1.14.2
   - apiVersion: v2
     appVersion: 1.7.3
-    created: "2024-02-16T21:21:17.577389-08:00"
+    created: "2024-02-16T21:22:13.849547-08:00"
     description: A Helm chart for deploying 1Password Connect and the 1Password Connect
       Kubernetes Operator
     digest: c4c7ff7bdf245b4024cfaf8885c52e8ac30e5e34c0c96cbadeeaafd759fb6f81
@@ -42,7 +42,7 @@ entries:
   packetriot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-16T21:21:17.580554-08:00"
+    created: "2024-02-16T21:22:13.852801-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -60,8 +60,21 @@ entries:
     version: 0.1.0
   plex:
   - apiVersion: v2
+    appVersion: 1.16.2
+    created: "2024-02-16T21:22:13.854296-08:00"
+    description: A Helm chart for Kubernetes
+    digest: 40f7aff5922cfb2b1bfec4b0404833e2d3185200a09ee62efc885a975d925ee7
+    maintainers:
+    - email: expectedbehaviors@gmail.com
+      name: Jacob Dresdale
+    name: plex
+    type: application
+    urls:
+    - plex-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v2
     appVersion: 1.16.1
-    created: "2024-02-16T21:21:17.581647-08:00"
+    created: "2024-02-16T21:22:13.853931-08:00"
     description: A Helm chart for Kubernetes
     digest: 24bbf8d31bcfa2a76aba6693fe612520d178451b10223ad1c0ae049033ceaab8
     maintainers:
@@ -74,7 +87,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-16T21:21:17.58127-08:00"
+    created: "2024-02-16T21:22:13.8534-08:00"
     description: A Helm chart for Kubernetes
     digest: 3e9d133c693d45fef2ec969a2f921d305da852672a4f13beb7aed986e5eb9093
     maintainers:
@@ -88,7 +101,7 @@ entries:
   plex-linker:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-16T21:21:17.583564-08:00"
+    created: "2024-02-16T21:22:13.856149-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -108,7 +121,7 @@ entries:
   sonarr-genre-tagger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2024-02-16T21:21:17.584035-08:00"
+    created: "2024-02-16T21:22:13.856613-08:00"
     description: A Helm chart for Kubernetes
     digest: b1f67bb5aeadfb6a8d25367fe3f951a42c72ed34ddfb26530051916f69c28d55
     maintainers:
@@ -121,4 +134,4 @@ entries:
     urls:
     - sonarr-genre-tagger-0.1.0.tgz
     version: 0.1.0
-generated: "2024-02-16T21:21:17.575204-08:00"
+generated: "2024-02-16T21:22:13.847497-08:00"
