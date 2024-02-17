@@ -1,9 +1,29 @@
 apiVersion: v1
 entries:
+  onepassword-connect:
+  - apiVersion: v2
+    appVersion: 1.7.3
+    created: "2024-02-16T16:40:46.857468-08:00"
+    description: A Helm chart for deploying 1Password Connect and the 1Password Connect
+      Kubernetes Operator
+    digest: c4c7ff7bdf245b4024cfaf8885c52e8ac30e5e34c0c96cbadeeaafd759fb6f81
+    home: https://1password.com/secrets/
+    icon: https://avatars.githubusercontent.com/u/38230737
+    keywords:
+    - 1Password
+    - 1Password Connect
+    - 1Password Operator
+    maintainers:
+    - email: support+business@1password.com
+      name: 1Password Secrets Integrations Team
+    name: onepassword-connect
+    urls:
+    - onepassword-connect-1.14.1.tgz
+    version: 1.14.1
   packetriot:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:39:34.978655-08:00"
+    created: "2024-02-16T16:40:46.859091-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -22,7 +42,7 @@ entries:
   plex-linker:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:39:34.982045-08:00"
+    created: "2024-02-16T16:40:46.860738-08:00"
     dependencies:
     - name: common
       repository: https://library-charts.k8s-at-home.com
@@ -42,7 +62,7 @@ entries:
   sonarr-genre-tagger:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2022-02-14T00:39:34.982618-08:00"
+    created: "2024-02-16T16:40:46.861054-08:00"
     description: A Helm chart for Kubernetes
     digest: b1f67bb5aeadfb6a8d25367fe3f951a42c72ed34ddfb26530051916f69c28d55
     maintainers:
@@ -55,4 +75,4 @@ entries:
     urls:
     - sonarr-genre-tagger-0.1.0.tgz
     version: 0.1.0
-generated: "2022-02-14T00:39:34.975302-08:00"
+generated: "2024-02-16T16:40:46.856499-08:00"
