@@ -35,15 +35,7 @@ podAnnotations: {}
 podSecurityContext:
   fsGroup: 1337
 
-securityContext:
-  allowPrivilegeEscalation: false
-  capabilities:
-    drop: ["ALL"]
-  runAsGroup: 1337
-  runAsNonRoot: true
-  runAsUser: 1337
-  seccompProfile:
-    type: RuntimeDefault
+securityContext: {}
 
 service:
   type: ClusterIP
