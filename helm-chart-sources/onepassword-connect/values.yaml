@@ -12,7 +12,8 @@ connect:
   securityContext:
     allowPrivilegeEscalation: false
     capabilities:
-      drop: [all]
+      drop:
+        - "ALL"
     readOnlyRootFilesystem: true
     runAsGroup: 1337
     runAsNonRoot: true
@@ -215,7 +216,8 @@ operator:
   securityContext:
     allowPrivilegeEscalation: false
     capabilities:
-      drop: [all]
+      drop:
+        - "ALL"
     readOnlyRootFilesystem: true
     runAsGroup: 1337
     runAsNonRoot: true
@@ -224,7 +226,7 @@ operator:
       type: RuntimeDefault
 
   # Denotes whether the 1Password Operator will be deployed
-  create: false
+  create: true
 
   # Denotes whether the 1Password Operator will automatically restart deployments based on associated updated secrets.
   autoRestart: false
