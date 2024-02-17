@@ -106,7 +106,7 @@ connect:
   imagePullPolicy: IfNotPresent
 
   # The 1Password Connect version to pull
-  version: "{{ .Chart.AppVersion }}"
+  version: latest
 
   # Node selector stanza for the Connect pod
   # See: https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector
