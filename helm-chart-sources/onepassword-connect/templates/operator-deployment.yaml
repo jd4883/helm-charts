@@ -41,9 +41,7 @@ spec:
           image: {{ .Values.operator.imageRepository }}:{{ .Values.operator.version | default "latest" }}
           imagePullPolicy: {{ .Values.connect.imagePullPolicy }}
           securityContext:
-            {{- with .Values.operator.securityContext }}
-            {{- toYaml . | nindent 8 }}
-            {{- end }}
+            {{- toYaml .Values.operator.securityContext | nindent 12 }}
           command: ["/manager"]
           args: [--zap-log-level={{ .Values.operator.logLevel }}]
           env:
