@@ -4,6 +4,8 @@
 
 replicaCount: 1
 
+env: []
+
 image:
   repository: lscr.io/linuxserver/plex
   pullPolicy: IfNotPresent
