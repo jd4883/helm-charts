@@ -116,3 +116,16 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+volumeMounts:
+  - name: config
+    mountPath: /config
+  - name: media
+    mountPath: /media
+volumes:
+  - name: config
+    persistentVolumeClaim:
+      claimName: plex-config
+  - name: media
+    persistentVolumeClaim:
+      claimName: plex-media

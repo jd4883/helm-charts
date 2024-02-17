@@ -1,7 +1,7 @@
 {{- if .Values.ingress.uas.enabled -}}
 {{- $fullName := include "plex.fullname" . -}}
 {{- $svcPort := (index .Values.service.ports 1).port -}}
-{{- $svcPortName := (index .Values.ports.ports 1).name -}}
+{{- $svcPortName := (index .Values.service.ports 1).name -}}
 {{- if and .Values.ingress.uas.className (not (semverCompare ">=1.18-0" .Capabilities.KubeVersion.GitVersion)) }}
   {{- if not (hasKey .Values.ingress.uas.annotations "kubernetes.io/ingress.class") }}
   {{- $_ := set .Values.ingress.uas.annotations "kubernetes.io/ingress.class" .Values.ingress.uas.className}}
