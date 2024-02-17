@@ -15,9 +15,9 @@ connect:
       drop:
         - "ALL"
     readOnlyRootFilesystem: false
-    runAsGroup: 1337
+    runAsGroup: 999
     runAsNonRoot: true
-    runAsUser: 1337
+    runAsUser: 999
     seccompProfile:
       type: RuntimeDefault
       
