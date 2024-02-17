@@ -14,7 +14,7 @@ connect:
     capabilities:
       drop:
         - "ALL"
-    readOnlyRootFilesystem: true
+    readOnlyRootFilesystem: false
     runAsGroup: 1337
     runAsNonRoot: true
     runAsUser: 1337
