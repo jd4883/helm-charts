@@ -39,7 +39,7 @@ vpn:
   env: []
   envFrom: []
   image:
-    repository: dperson/openvpn-client
+    repository: qmcgaw/gluetun
     pullPolicy: IfNotPresent
     tag: latest
   securityContext:
