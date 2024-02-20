@@ -88,12 +88,8 @@ spec:
             {{- toYaml .Values.vpn.env | nindent 12 }}
           envFrom:
             {{- toYaml .Values.vpn.envFrom | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
-            - name: http
-              containerPort: {{ .Values.service.port }}
-              protocol: TCP
+          image: "{{ .Values.vpn.image.repository }}:{{ .Values.vpn.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.vpn.image.pullPolicy }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           securityContext:
