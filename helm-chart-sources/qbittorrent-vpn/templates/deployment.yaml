@@ -100,12 +100,9 @@ spec:
             {{- toYaml .Values.vpn.volumeMounts | nindent 12 }}
       affinity:
         {{- toYaml .Values.affinity | nindent 8 }}
-      dnsPolicy: {{ .Values.dnsPolicy | default "ClusterFirst" }}
       enableServiceLinks: {{ .Values.enableServiceLinks | default true }}
       nodeSelector:
         {{- toYaml .Values.nodeSelector | nindent 8 }}
-      restartPolicy: {{ .Values.restartPolicy | default "Always" }}
-      schedulerName: {{ .Values.schedulerName | default "default-scheduler" }}
       serviceAccount: {{ include "qbittorrent-vpn.serviceAccountName" . }}
       serviceAccountName: {{ include "qbittorrent-vpn.serviceAccountName" . }}
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds | default 30 }}
