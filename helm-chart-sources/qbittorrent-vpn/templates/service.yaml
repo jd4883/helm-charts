@@ -1,0 +1,35 @@
+{{- $service := .Values.service }}
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    {{- include "qbittorrent-vpn.annotations" . | nindent 4 }}
+  labels:
+    {{- include "qbittorrent-vpn.labels" . | nindent 4 }}
+  name: {{ include "qbittorrent-vpn.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  {{- if $service.clusterIP }}
+  clusterIP: {{ $service.clusterIP  }}
+  {{- end }}
+  {{- if $service.clusterIPs }}
+  {{ with $service.clusterIPs }}
+  clusterIPs: {{- toYaml . | nindent 4 }} 
+  {{- end }}
+  {{- end }}
+  internalTrafficPolicy: Cluster
+  {{- if $service.ipFamilies }}
+  {{ with $service.ipFamilies }}
+  ipFamilies: {{- toYaml . | nindent 4 }} 
+  {{- end }}
+  {{- end }}
+  ipFamilyPolicy: {{ $service.ipFamilyPolicy | default "SingleStack" }}
+  ports:
+  - name: {{ $service.name | default "http" }}
+    port: {{ $service.httpPort | default 8080 }}
+    protocol: {{ $service.protocol | default "TCP" }}
+    targetPort: {{ $service.name | default "http" }}
+  selector:
+    {{- include "qbittorrent-vpn.selectorLabels" . | nindent 4 }}
+  sessionAffinity: {{ $service.sessionAffinity | default "None" }}
+  type: {{ $service.type | default "ClusterIP" }}
