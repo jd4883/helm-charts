@@ -15,7 +15,7 @@ envFrom: []
 
 service:
   type: ClusterIP
-  port: &port 8080 
+  port: &port 8080
 
 volumes:
   - name: data
@@ -49,7 +49,7 @@ vpn:
       - SYS_MODULE
     readOnlyRootFilesystem: false
   volumeMounts: []
-        
+
 
 livenessProbe:
   failureThreshold: 3
