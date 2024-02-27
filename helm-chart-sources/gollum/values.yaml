@@ -81,7 +81,7 @@ tolerations: []
 affinity: {}
 
 gollum:
-  command: --allow-uploads --emoji --user-icons gravatar
+  command: "--allow-uploads --emoji --user-icons gravatar"
 
 volumeMounts:
   - name: gollum
