@@ -73,8 +73,8 @@ spec:
             - containerPort: {{ $service.httpPort | default 8080 }}
               name: {{ $service.name | default "http" }}
               protocol: {{ $service.protocol | default "TCP" }}
-            - containerPort: name: {{ $service.privoxyName | default "privoxy" }}
-              name: {{ $service.privoxyPort | default 8118 }}
+            - containerPort: {{ $service.privoxyPort | default 8118 }}
+              name: {{ $service.privoxyName | default "privoxy" }}
               protocol: {{ $service.privoxyProtocol | default "TCP" }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
