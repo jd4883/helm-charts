@@ -10,7 +10,9 @@ termination:
   messagePath: /dev/termination-log
   messagePolicy: File
 
-env: []
+env:
+  - name: DOCKER_MODS
+    value: ghcr.io/pyunramura/privoxy
 envFrom: []
 
 service:
@@ -75,7 +77,6 @@ readinessProbe:
 replicaCount: 1
 
 imagePullSecrets: []
-nameOverride: ""
 fullnameOverride: ""
 
 serviceAccount:
