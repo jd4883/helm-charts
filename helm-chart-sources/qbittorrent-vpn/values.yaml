@@ -20,7 +20,7 @@ service:
   port: &port 8080
 
 volumes:
-  - name: data
+  - name: config
     persistentVolumeClaim:
       claimName: qbittorrent-vpn-data
   - name: downloads
@@ -29,8 +29,8 @@ volumes:
   - name: shared
     emptyDir: {}
 volumeMounts:
-  - mountPath: /data
-    name: data
+  - mountPath: /config
+    name: config
   - mountPath: /downloads
     name: downloads
   - mountPath: /shared
