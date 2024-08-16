@@ -31,6 +31,10 @@ spec:
     port: {{ $service.privoxyPort | default 8118 }}
     protocol: {{ $service.privoxyProtocol | default "TCP" }}
     targetPort: {{ $service.privoxyTargetPort | default 8118 }}
+  - name: {{ $service.listeningPortName | default "listener" }}
+    port: {{ $service.listeningPort | default 40195 }}
+    protocol: {{ $service.listeningPortProtocol | default "TCP" }}
+    targetPort: {{ $service.listeningPort | default 40195 }}
   selector:
     {{- include "qbittorrent-vpn.selectorLabels" . | nindent 4 }}
   sessionAffinity: {{ $service.sessionAffinity | default "None" }}

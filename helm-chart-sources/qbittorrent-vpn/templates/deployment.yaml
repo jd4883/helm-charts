@@ -76,6 +76,9 @@ spec:
             - containerPort: {{ $service.privoxyPort | default 8118 }}
               name: {{ $service.privoxyName | default "privoxy" }}
               protocol: {{ $service.privoxyProtocol | default "TCP" }}
+            - containerPort: {{ $service.listeningPort | default 40195 }}
+              name: {{ $service.listeningPortName | default "listener" }}
+              protocol: {{ $service.listeningPortProtocol | default "TCP" }}
           readinessProbe:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           resources:
