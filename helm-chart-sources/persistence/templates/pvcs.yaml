@@ -1,35 +1,35 @@
-{{- range $volume, $spec := .Values.volumes }}
-{{- $name := printf "%s-%s" $spec.namespace $volume }}
+{{- range .Values.volumes }}
+{{- $name := printf "%s-%s" .namespace .name }}
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: {{ $name }}
-  {{- if $spec.annotations }}
-  annotations: {{- toYaml $spec.annotations | nindent 4 }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
   {{- end }}
-  {{- if $spec.labels }}
-  labels:  {{- toYaml $spec.labels | nindent 4 }}
+  {{- if .labels }}
+  labels:  {{- toYaml .labels | nindent 4 }}
   {{- end }}
 spec:
   capacity:
-    storage: {{ $spec.capacity | quote }}
-  volumeMode: {{ $spec.volumeMode | default "Filesystem" }}
+    storage: {{ .capacity | quote }}
+  volumeMode: {{ .volumeMode | default "Filesystem" }}
   accessModes:
-    - {{ $spec.accessMode }}
-  persistentVolumeReclaimPolicy: {{ $spec.reclaimPolicy | default "Retain" }}
-  storageClassName: {{ $spec.storageClass | default "" | quote }}
-  {{- if $spec.csi }}
+    - {{ .accessMode }}
+  persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
+  storageClassName: {{ .storageClass | default "" | quote }}
+  {{- if .csi }}
   csi:
-  {{ toYaml $spec.csi | indent 2 }}
+  {{ toYaml .csi | indent 2 }}
   {{- end }}
-  {{- if $spec.nfs }}
+  {{- if .nfs }}
   nfs:
-    server: {{ $spec.nfs.server }}
-    path: {{ $spec.nfs.path }}
-  {{- if $spec.nfs.mountOptions }}
+    server: {{ .nfs.server }}
+    path: {{ .nfs.path }}
+  {{- if .nfs.mountOptions }}
   mountOptions:
-    {{- range $spec.nfs.mountOptions }}
+    {{- range .nfs.mountOptions }}
     - {{ . }}
     {{- end }}
   {{- end }}
@@ -38,18 +38,18 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ $volume }}
-  {{- if $spec.annotations }}
-  annotations: {{- toYaml $spec.annotations | nindent 4 }}
+  name: {{ .name }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
   {{- end }}
-  {{- if $spec.labels }}
-  labels:  {{- toYaml $spec.labels | nindent 4 }}
+  {{- if .labels }}
+  labels:  {{- toYaml .labels | nindent 4 }}
   {{- end }}
 spec:
   accessModes:
-    - {{ $spec.accessMode | quote }}
+    - {{ .accessMode | quote }}
   resources:
     requests:
-      storage: {{ $spec.capacity | quote }}
-  storageClassName: {{ $spec.storageClass | default "" | quote }}
+      storage: {{ .capacity | quote }}
+  storageClassName: {{ .storageClass | default "" | quote }}
 {{- end }}
