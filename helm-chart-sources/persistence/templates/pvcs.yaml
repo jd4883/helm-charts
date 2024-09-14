@@ -52,4 +52,6 @@ spec:
     requests:
       storage: {{ .capacity | quote }}
   storageClassName: {{ .storageClass | default "" | quote }}
+  volumeMode: {{ .volumeMode | default "Filesystem" | quote }}
+  volumeName: {{ $name }}
 {{- end }}
