@@ -20,7 +20,7 @@ spec:
     - {{ .accessMode }}
   persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
   storageClassName: {{ .storageClass | default "" | quote }}
-  {{- if .csi }}
+  {{- if .csi.enable | default false }}
   # DISCLAIMER: this is setup for vmware and has not been tested or expanded out for other csi providers. Use with caution if not using tanzu
   csi:
     driver: {{ .csi.driver }}
