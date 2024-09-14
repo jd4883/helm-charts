@@ -23,12 +23,16 @@ spec:
   {{- if .csi.enable | default false }}
   # DISCLAIMER: this is setup for vmware and has not been tested or expanded out for other csi providers. Use with caution if not using tanzu
   csi:
-    driver: {{ .csi.driver }}
-    fsType: {{ .csi.fsType }}
+    driver: {{ .csi.driver | default "csi.vsphere.vmware.com" }}
+    fsType: {{ .csi.fsType | default "ext4" }}
+    {{- if .csi.volumeAttributes }}
     volumeAttributes:
-  {{ toYaml .csi.volumeAttributes | indent 4 }}
-  {{- end }}
+    {{ toYaml .csi.volumeAttributes | indent 4 }}
+    {{- end }}
+    {{- end }}
+    {{- if .csi.volumeHandle }}
     volumeHandle: {{ .csi.volumeHandle }}
+    {{- end }}
   {{- if .nfs }}
   nfs:
     server: {{ .nfs.server }}
