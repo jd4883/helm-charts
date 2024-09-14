@@ -6,3 +6,9 @@ volumes:
     nfs:
       path: /mnt/path
       server: x.x.x.x
+    csi:
+      driver: csi.vsphere.vmware.com
+      fsType: ext4
+      volumeAttributes:
+        type: "vSphere CNS Block Volume"
+      volumeHandle: eebb64bb-4b60-4383-964a-59c499d3b910-85ddf9b8-2def-4c84-92e2-33bf5df49cbb

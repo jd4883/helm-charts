@@ -20,9 +20,14 @@ spec:
   persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
   storageClassName: {{ .storageClass | default "" | quote }}
   {{- if .csi }}
+  # DISCLAIMER: this is setup for vmware and has not been tested or expanded out for other csi providers. Use with caution if not using tanzu
   csi:
-  {{ toYaml .csi | indent 2 }}
+    driver: {{ .csi.driver }}
+    fsType: {{ .csi.fsType }}
+    volumeAttributes:
+  {{ toYaml .csi.volumeAttributes | indent 4 }}
   {{- end }}
+    volumeHandle: {{ .csi.volumeHandle }}
   {{- if .nfs }}
   nfs:
     server: {{ .nfs.server }}
