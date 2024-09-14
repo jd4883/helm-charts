@@ -1,5 +1,5 @@
 volumes:
-  sample:
+  - name: sample
     namespace: sample
     accessMode: ReadWriteOnce
     capacity: 5Gi
