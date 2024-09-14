@@ -1,0 +1,8 @@
+volumes:
+  - name: sample
+    namespace: sample
+    accessMode: ReadWriteOnce
+    capacity: 5Gi
+    nfs:
+      path: /mnt/path
+      server: x.x.x.x

@@ -1,0 +1,55 @@
+{{- range .Values.volumes }}
+{{- $name := printf "%s-%s" .namespace .name }}
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ $name }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
+  {{- end }}
+  {{- if .labels }}
+  labels:  {{- toYaml .labels | nindent 4 }}
+  {{- end }}
+spec:
+  capacity:
+    storage: {{ .capacity | quote }}
+  volumeMode: {{ .volumeMode | default "Filesystem" }}
+  accessModes:
+    - {{ .accessMode }}
+  persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
+  storageClassName: {{ .storageClass | default "" | quote }}
+  {{- if .csi }}
+  csi:
+  {{ toYaml .csi | indent 2 }}
+  {{- end }}
+  {{- if .nfs }}
+  nfs:
+    server: {{ .nfs.server }}
+    path: {{ .nfs.path }}
+  {{- if .nfs.mountOptions }}
+  mountOptions:
+    {{- range .nfs.mountOptions }}
+    - {{ . }}
+    {{- end }}
+  {{- end }}
+  {{- end }}
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ .name }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
+  {{- end }}
+  {{- if .labels }}
+  labels:  {{- toYaml .labels | nindent 4 }}
+  {{- end }}
+spec:
+  accessModes:
+    - {{ .accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .capacity | quote }}
+  storageClassName: {{ .storageClass | default "" | quote }}
+{{- end }}
