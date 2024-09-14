@@ -1,5 +1,6 @@
 {{- range .Values.volumes }}
-{{- $name := printf "%s-%s" .namespace .name }}
+{{- $parsedName := printf "%s-%s" .namespace .name }}
+{{- $name := .pvName | default $parsedName | lower }}
 ---
 apiVersion: v1
 kind: PersistentVolume

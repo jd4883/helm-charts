@@ -3,6 +3,7 @@ volumes:
     namespace: sample
     accessMode: ReadWriteOnce
     capacity: 5Gi
+    pvName: replaceMe
     nfs:
       path: /mnt/path
       server: x.x.x.x
