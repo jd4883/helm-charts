@@ -1,0 +1,9 @@
+volumes:
+  pvc-name:
+    capacity: 1Gi
+    datastore: datastore # optional
+    namespace: namespace
+    pvName: pvc-e886341c-5f7d-4d16-8b7c-acda53a46126
+    storage_class: storage-class-name
+    vmdkPath: fcd/xxxxxx.vmdk # optional
+    volumeHandle: 4f9ea463-eefe-42ef-bae9-c062aada13b6-e886341c-5f7d-4d16-8b7c-acda53a46126
