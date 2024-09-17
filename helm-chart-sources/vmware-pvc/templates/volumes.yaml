@@ -31,8 +31,6 @@ spec:
   persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
   storageClassName: {{ .storageClass | default "" | quote }}
   claimRef:
-    apiVersion: {{ .apiVersion | default "v1" }}
-    kind: {{ .kind | default "PersistentVolumeClaim" }}
     name: {{ .name }}
     namespace: {{ .namespace }}
   csi:
