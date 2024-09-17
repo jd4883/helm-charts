@@ -30,9 +30,9 @@ spec:
   accessModes: [{{ $accessMode | quote }}]
   persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
   storageClassName: {{ .storageClass | default "" | quote }}
-  claimRef:
-    name: {{ .name }}
-    namespace: {{ .namespace }}
+  # claimRef:
+  #   name: {{ .name }}
+  #   namespace: {{ .namespace }}
   csi:
     driver: {{ .driver | default "csi.vsphere.vmware.com" }}
     fsType: {{ .fsType | default "ext4" }}
