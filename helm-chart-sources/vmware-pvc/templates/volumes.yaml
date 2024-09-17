@@ -11,17 +11,17 @@ metadata:
   annotations: {{- toYaml .annotations | nindent 4 }}
   {{- end }}
   labels:
-    fcd-id: {{ .volumeHandle }}
+    fcd-id: {{ .volumeHandle | lower }}
     name: {{ $name }}
-    namespace: {{ .namespace }}
+    namespace: {{ .namespace | lower }}
     {{- if .pvName }}
-    pv-name: {{ .pvName }}
+    pv-name: {{ .pvName | lower }}
     {{- end }}
     {{- if .vmdkPath }}
-    vmdk-path: {{ .vmdkPath }}
+    vmdk-path: {{ .vmdkPath | lower }}
     {{- end }}
     {{- if .datastore }}
-    datastore: {{ .datastore }}
+    datastore: {{ .datastore | lower }}
     {{- end }}
 spec:
   capacity:
@@ -59,17 +59,17 @@ spec:
       storage: {{ .capacity | quote }}
   selector:
     matchLabels:
-      fcd-id: {{ .volumeHandle }}
+      fcd-id: {{ .volumeHandle | lower }}
       name: {{ $name }}
-      namespace: {{ .namespace }}
+      namespace: {{ .namespace | lower }}
       {{- if .pvName }}
-      pv-name: {{ .pvName }}
+      pv-name: {{ .pvName | lower }}
       {{- end }}
       {{- if .vmdkPath }}
-      vmdk-path: {{ .vmdkPath }}
+      vmdk-path: {{ .vmdkPath | lower }}
       {{- end }}
       {{- if .datastore }}
-      datastore: {{ .datastore }}
+      datastore: {{ .datastore | lower }}
       {{- end }}
   storageClassName: {{ .storageClass | default "" | quote }}
   volumeMode: {{ .volumeMode | default "Filesystem" | quote }}
