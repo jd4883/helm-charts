@@ -1,5 +1,5 @@
 volumes:
-  pvc-name:
+  - name: pvc-name
     capacity: 1Gi
     datastore: datastore # optional
     namespace: namespace

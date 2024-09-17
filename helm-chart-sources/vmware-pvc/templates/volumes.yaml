@@ -1,77 +1,77 @@
-{{- range $pvc, $spec := .Values.volumes }}
-{{- $parsedName := printf "%s-%s" $spec.namespace $spec.name }}
-{{- $name := $spec.pvName | default $parsedName | lower }}
-{{ $accessMode := $spec.accessMode | default "ReadWriteOnce" }}
+{{- range .Values.volumes }}
+{{- $parsedName := printf "%s-%s" .namespace .name }}
+{{- $name := .pvName | default $parsedName | lower }}
+{{ $accessMode := .accessMode | default "ReadWriteOnce" }}
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: {{ $name }}
-  {{- if $spec.annotations }}
-  annotations: {{- toYaml $spec.annotations | nindent 4 }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
   {{- end }}
   labels:
-    fcd-id: {{ $spec.volumeHandle }}
+    fcd-id: {{ .volumeHandle }}
     name: {{ $name }}
-    namespace: {{ $spec.namespace }}
-    {{- if $spec.pvName }}
-    pv-name: {{ $spec.pvName }}
+    namespace: {{ .namespace }}
+    {{- if .pvName }}
+    pv-name: {{ .pvName }}
     {{- end }}
-    {{- if $spec.vmdkPath }}
-    vmdk-path: {{ $spec.vmdkPath }}
+    {{- if .vmdkPath }}
+    vmdk-path: {{ .vmdkPath }}
     {{- end }}
-    {{- if $spec.datastore }}
-    datastore: {{ $spec.datastore }}
+    {{- if .datastore }}
+    datastore: {{ .datastore }}
     {{- end }}
 spec:
   capacity:
-    storage: {{ $spec.capacity | quote }}
-  volumeMode: {{ $spec.volumeMode | default "Filesystem" }}
+    storage: {{ .capacity | quote }}
+  volumeMode: {{ .volumeMode | default "Filesystem" }}
   accessModes: [{{ $accessMode | quote }}]
-  persistentVolumeReclaimPolicy: {{ $spec.reclaimPolicy | default "Retain" }}
-  storageClassName: {{ $spec.storageClass | default "" | quote }}
+  persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
+  storageClassName: {{ .storageClass | default "" | quote }}
   claimRef:
-    apiVersion: {{ $spec.apiVersion | default "v1" }}
-    kind: {{ $spec.kind | default "PersistentVolumeClaim" }}
-    name: {{ $spec.name }}
-    namespace: {{ $spec.namespace }}
+    apiVersion: {{ .apiVersion | default "v1" }}
+    kind: {{ .kind | default "PersistentVolumeClaim" }}
+    name: {{ .name }}
+    namespace: {{ .namespace }}
   csi:
-    driver: {{ $spec.driver | default "csi.vsphere.vmware.com" }}
-    fsType: {{ $spec.fsType | default "ext4" }}
+    driver: {{ .driver | default "csi.vsphere.vmware.com" }}
+    fsType: {{ .fsType | default "ext4" }}
     volumeAttributes:
-      type: {{ $spec.type | default "vSphere CNS Block Volume" }}
-    volumeHandle: {{ $spec.volumeHandle }}
+      type: {{ .type | default "vSphere CNS Block Volume" }}
+    volumeHandle: {{ .volumeHandle }}
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ $spec.name }}
-  {{- if $spec.annotations }}
-  annotations: {{- toYaml $spec.annotations | nindent 4 }}
+  name: {{ .name }}
+  {{- if .annotations }}
+  annotations: {{- toYaml .annotations | nindent 4 }}
   {{- end }}
-  {{- if $spec.labels }}
-  labels:  {{- toYaml $spec.labels | nindent 4 }}
+  {{- if .labels }}
+  labels:  {{- toYaml .labels | nindent 4 }}
   {{- end }}
 spec:
   accessModes: [{{ $accessMode | quote }}]
   resources:
     requests:
-      storage: {{ $spec.capacity | quote }}
+      storage: {{ .capacity | quote }}
   selector:
     matchLabels:
-      fcd-id: {{ $spec.volumeHandle }}
+      fcd-id: {{ .volumeHandle }}
       name: {{ $name }}
-      namespace: {{ $spec.namespace }}
-      {{- if $spec.pvName }}
-      pv-name: {{ $spec.pvName }}
+      namespace: {{ .namespace }}
+      {{- if .pvName }}
+      pv-name: {{ .pvName }}
       {{- end }}
-      {{- if $spec.vmdkPath }}
-      vmdk-path: {{ $spec.vmdkPath }}
+      {{- if .vmdkPath }}
+      vmdk-path: {{ .vmdkPath }}
       {{- end }}
-      {{- if $spec.datastore }}
-      datastore: {{ $spec.datastore }}
+      {{- if .datastore }}
+      datastore: {{ .datastore }}
       {{- end }}
-  storageClassName: {{ $spec.storageClass | default "" | quote }}
-  volumeMode: {{ $spec.volumeMode | default "Filesystem" | quote }}
+  storageClassName: {{ .storageClass | default "" | quote }}
+  volumeMode: {{ .volumeMode | default "Filesystem" | quote }}
   volumeName: {{ $name }}
 {{- end }}
