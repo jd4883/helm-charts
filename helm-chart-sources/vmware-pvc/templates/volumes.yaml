@@ -8,7 +8,9 @@ kind: PersistentVolume
 metadata:
   name: {{ $name }}
   {{- if .annotations }}
-  annotations: {{- toYaml .annotations | nindent 4 }}
+  annotations: 
+    pv.kubernetes.io/provisioned-by: csi.vsphere.vmware.com
+    {{- toYaml .annotations | nindent 4 }}
   {{- end }}
   labels:
     fcd-id: {{ .volumeHandle | lower | trunc 63 }}
@@ -26,16 +28,14 @@ metadata:
 spec:
   capacity:
     storage: {{ .capacity | quote }}
-  volumeMode: {{ .volumeMode | default "Filesystem" }}
   accessModes: [{{ $accessMode | quote }}]
   persistentVolumeReclaimPolicy: {{ .reclaimPolicy | default "Retain" }}
   storageClassName: {{ .storageClass | default "" | quote }}
-  # claimRef:
-  #   name: {{ .name }}
-  #   namespace: {{ .namespace }}
+  claimRef:
+    name: {{ .name }}
+    namespace: {{ .namespace }}
   csi:
     driver: {{ .driver | default "csi.vsphere.vmware.com" }}
-    fsType: {{ .fsType | default "ext4" }}
     volumeAttributes:
       type: {{ .type | default "vSphere CNS Block Volume" }}
     volumeHandle: {{ .volumeHandle }}
@@ -70,6 +70,5 @@ spec:
       datastore: {{ .datastore | lower | trunc 63 }}
       {{- end }}
   storageClassName: {{ .storageClass | default "" | quote }}
-  volumeMode: {{ .volumeMode | default "Filesystem" | quote }}
   volumeName: {{ $name }}
 {{- end }}
