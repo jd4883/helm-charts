@@ -2,6 +2,10 @@ volumes:
   - name: pvc-name
     capacity: 1Gi
     datastore: DS1
+    annotations:
+      example: value
+    labels:
+      example: value
     namespace: namespace
     pvName: pvc-e886341c-5f7d-4d16-8b7c-acda53a46126
     storage_class: storage-class-name

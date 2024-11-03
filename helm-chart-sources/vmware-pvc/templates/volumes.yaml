@@ -25,6 +25,9 @@ metadata:
     {{- if .datastore }}
     datastore: {{ .datastore | lower }}
     {{- end }}
+    {{- if .labels }}
+    {{- toYaml .labels | nindent 4 }}
+    {{- end }}
 spec:
   capacity:
     storage: {{ .capacity | quote }}

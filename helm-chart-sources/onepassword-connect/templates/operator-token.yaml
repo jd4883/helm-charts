@@ -1,4 +1,4 @@
-{{- if and (.Values.operator.create) (.Values.operator.token.value) -}}
+{{- if and (eq .Values.operator.create true) (.Values.operator.token.value) -}}
 apiVersion: v1
 kind: Secret
 metadata:
@@ -8,6 +8,6 @@ metadata:
     app.kubernetes.io/component: operator
     {{- include "onepassword-connect.labels" . | nindent 4 }}
 type: Opaque
-stringData:
+data:
   {{ .Values.operator.token.key }}: {{ .Values.operator.token.value }}
 {{- end }}
