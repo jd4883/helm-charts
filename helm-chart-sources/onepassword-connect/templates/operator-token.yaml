@@ -8,6 +8,6 @@ metadata:
     app.kubernetes.io/component: operator
     {{- include "onepassword-connect.labels" . | nindent 4 }}
 type: Opaque
-data:
+stringData:
   {{ .Values.operator.token.key }}: {{ .Values.operator.token.value }}
 {{- end }}
