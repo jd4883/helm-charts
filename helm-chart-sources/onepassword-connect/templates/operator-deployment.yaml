@@ -32,7 +32,15 @@ spec:
       {{- toYaml . | nindent 8 }}
       {{- end }}
     spec:
-      nodeSelector: {{- toYaml .Values.operator.nodeSelector | nindent 8}}
+      {{- if .Values.connect.nodeSelector }}
+      nodeSelector: {{ toYaml .Values.operator.nodeSelector | nindent 8 }}
+      {{- end }}
+      dnsConfig:
+        nameservers: {{- toYaml .Values.dnsConfig.nameservers | nindent 10 }}
+        {{- if .Values.dnsConfig.searches }}
+        searches: {{- toYaml .Values.dnsConfig.searches | nindent 10 }}
+        {{- end }}
+      dnsPolicy: {{ .Values.dnsPolicy | quote }}
       tolerations:
         {{ toYaml .Values.operator.tolerations }}
       serviceAccountName: {{ .Values.operator.serviceAccount.name }}

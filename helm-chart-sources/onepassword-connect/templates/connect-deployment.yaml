@@ -33,7 +33,15 @@ spec:
         {{- toYaml . | nindent 8 }}
         {{- end }}
     spec:
-      nodeSelector: {{- toYaml .Values.connect.nodeSelector | nindent 8 }}
+      {{- if .Values.connect.nodeSelector }}
+      nodeSelector: {{ toYaml .Values.connect.nodeSelector | nindent 8 }}
+      {{- end }}
+      dnsConfig:
+        nameservers: {{- toYaml .Values.dnsConfig.nameservers | nindent 10 }}
+        {{- if .Values.dnsConfig.searches }}
+        searches: {{- toYaml .Values.dnsConfig.searches | nindent 10 }}
+        {{- end }}
+      dnsPolicy: {{ .Values.dnsPolicy | quote }}
       volumes:
         - name: {{ .Values.connect.dataVolume.name }}
           {{ .Values.connect.dataVolume.type }}: {{- toYaml .Values.connect.dataVolume.values | nindent 12 }}
