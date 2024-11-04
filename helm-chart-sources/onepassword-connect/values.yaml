@@ -100,7 +100,7 @@ connect:
   # Base64-encoded contents of the 1password-credentials.json file for Connect.
   # This can be used instead of connect.credentials in case supplying raw JSON
   # to connect.credentials leads to issues.
-  credentials_base64: placeholder
+  credentials_base64: 
 
   # The 1Password Connect API repository
   imagePullPolicy: IfNotPresent
@@ -280,7 +280,7 @@ operator:
     key: token
 
     # An API token generated for 1Password Connect to be used by the Operator
-    value: placeholder
+    value: 
 
   # 1Password Operator Service Account Configuration
   serviceAccount:
