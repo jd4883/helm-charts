@@ -4,12 +4,12 @@ kind: "PersistentVolumeClaim"
 apiVersion: "v1"
 metadata:
   name: {{ include "qbittorrent-vpn.fullname" $ }}
-  annotations: 
-  {{ (include "qbittorrent-vpn.annotations" $) | indent 2 }}  
+  annotations:
   {{- if .annotations }}
   {{ toYaml .annotations | indent 4 }}
-  {{ end }}
-  labels: {{- include "qbittorrent-vpn.labels" $ | nindent 4 }}
+  {{- end }}
+  labels:
+    {{- include "qbittorrent-vpn.labels" $ | nindent 4 }}
 spec:
   accessModes:
     - {{ default "ReadWriteOnce" .accessMode | quote }}
@@ -21,7 +21,7 @@ spec:
   {{ end }}
   {{- if .selector }}
   selector:
-{{ toYaml .selector | indent 4 }}
+  {{ toYaml .selector | indent 4 }}
   {{ end }}
 ---
 {{- end }}
