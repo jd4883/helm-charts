@@ -83,7 +83,6 @@ readinessProbe:
 replicaCount: 1
 
 imagePullSecrets: []
-fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
