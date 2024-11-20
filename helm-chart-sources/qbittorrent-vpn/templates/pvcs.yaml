@@ -3,7 +3,7 @@
 kind: "PersistentVolumeClaim"
 apiVersion: "v1"
 metadata:
-  name: {{ include "qbittorrent-vpn.fullname" $ }}
+  name: {{ .name }}
   annotations:
   {{- if .annotations }}
   {{ toYaml .annotations | indent 4 }}
