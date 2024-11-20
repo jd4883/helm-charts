@@ -1,0 +1,28 @@
+{{- range .Values.persistence }}
+{{- if (and (default true .enabled) (not (default "" .existingClaim))) -}}
+---
+kind: "PersistentVolumeClaim"
+apiVersion: "v1"
+metadata:
+  name: {{ template "qbittorrent-vpn.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  annotations: {{- toYaml (include "qbittorrent-vpn.annotations" $) | indent 2 }}  
+  {{- if .annotations }}
+  {{ toYaml .annotations | indent 2 }}  
+  {{ end }}
+  labels: {{- include "qbittorrent-vpn.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ default "ReadWriteOnce" .accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .size | quote }}
+  {{- if .storageClass }}
+  storageClassName: {{ .storageClass | quote }}
+  {{ end }}
+  {{- if .selector }}
+  selector:
+{{ toYaml .selector | indent 4 }}
+  {{ end }}
+{{- end }}
+{{- end }}

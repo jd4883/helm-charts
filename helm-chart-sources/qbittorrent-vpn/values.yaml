@@ -19,6 +19,12 @@ service:
   type: ClusterIP
   port: &port 8080
 
+persistence: 
+  - name: qbittorrent-vpn-data
+    size: 1Gi
+  - name: qbittorrent-vpn-downloads
+    size: 100Gi
+
 volumes:
   - name: config
     persistentVolumeClaim:
