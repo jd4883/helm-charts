@@ -9,8 +9,8 @@ Expand the name of the chart.
 {{- define "qbittorrent-vpn.annotations" -}}
 meta.helm.sh/release-name: {{ .Release.Name | quote }}
 meta.helm.sh/release-namespace: {{ .Release.Namespace | quote }}
-{{- with .Values.annotations | default dict }}
-{{- toYaml . }}
+{{- if .Values.annotations }}
+{{- toYaml .Values.annotations | trim }}
 {{- end }}
 {{- end -}}
 
@@ -45,6 +45,9 @@ helm.sh/chart: {{ include "qbittorrent-vpn.chart" . }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{- if .Values.labels }}
+{{- toYaml .Values.labels | trim }}
+{{- end }}
 {{- end }}
 
 {{/*
