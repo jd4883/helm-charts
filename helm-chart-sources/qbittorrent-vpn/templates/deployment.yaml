@@ -73,9 +73,6 @@ spec:
             - containerPort: {{ $service.httpPort | default 8080 }}
               name: {{ $service.name | default "http" }}
               protocol: {{ $service.protocol | default "TCP" }}
-            - containerPort: {{ $service.privoxyPort | default 8118 }}
-              name: {{ $service.privoxyName | default "privoxy" }}
-              protocol: {{ $service.privoxyProtocol | default "TCP" }}
             - containerPort: {{ $service.listeningPort | default 40195 }}
               name: {{ $service.listeningPortName | default "listener" }}
               protocol: {{ $service.listeningPortProtocol | default "TCP" }}
@@ -104,6 +101,16 @@ spec:
           terminationMessagePolicy: {{ .Values.termination.messagePolicy }}
           volumeMounts:
             {{- toYaml .Values.vpn.volumeMounts | nindent 12 }}
+        
+        - name: {{ printf "%s-%s" .Chart.Name (default "privoxy" $service.privoxyName) }}
+          image: {{ printf "%s:%s" (default "caligari/privoxy" .Values.privoxyImage) (default "latest" .Values.privoxyTag)}}
+          imagePullPolicy: {{ .Values.vpn.image.pullPolicy }}
+          ports: 
+            - containerPort: {{ $service.privoxyPort | default 8118 }}
+              name: {{ $service.privoxyName | default "privoxy" }}
+              protocol: {{ $service.privoxyProtocol | default "TCP" }}
+          securityContext:
+            {{- toYaml .Values.vpn.securityContext | nindent 12 }}
       affinity:
         {{- toYaml .Values.affinity | nindent 8 }}
       enableServiceLinks: {{ .Values.enableServiceLinks | default true }}
